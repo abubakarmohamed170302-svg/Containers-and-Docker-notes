@@ -1,8 +1,8 @@
 import os
+import socket
 
 from flask import Flask
 from redis import Redis
-
 
 app = Flask(__name__)
 
@@ -21,7 +21,12 @@ def home():
 @app.route("/count")
 def count():
     visit_count = redis_client.incr("visit_count")
-    return f"<h1>Visit count: {visit_count}</h1>"
+    container_name = socket.gethostname()
+
+    return f"""
+    <h1>Visit Count: {visit_count}</h1>
+    <p>Handled by Flask container: {container_name}</p>
+    """
 
 
 if __name__ == "__main__":

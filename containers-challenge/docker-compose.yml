@@ -2,8 +2,8 @@ services:
   flask:
     build:
       context: ./flask-app
-    ports:
-      - "5000:5000"
+    expose:
+      - "5000"
     environment:
       REDIS_HOST: redis
       REDIS_PORT: 6379
@@ -22,6 +22,15 @@ services:
       interval: 5s
       timeout: 3s
       retries: 5
+    restart: unless-stopped
+
+  nginx:
+    build:
+      context: ./nginx
+    ports:
+      - "5000:80"
+    depends_on:
+      - flask
     restart: unless-stopped
 
 volumes:
