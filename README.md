@@ -456,3 +456,45 @@ This project demonstrates many of the core Docker and Docker Compose concepts us
 ## Running Containers
 
 ![Docker Compose](screenshots/03-docker-compose-ps.png)
+
+---
+
+## Flask Scaling
+
+The Flask service was horizontally scaled to **three running containers** using Docker Compose.
+
+```bash
+docker compose up --build --scale flask=3
+```
+
+This demonstrates how Docker Compose can run multiple instances of the same service.
+
+![Flask Scaling](screenshots/04-flask-scaling.png)
+
+---
+
+## Load Balancing
+
+Nginx acts as a **reverse proxy** and distributes incoming requests across the three Flask containers.
+
+As the page is refreshed, different Flask containers handle each request, demonstrating that the application is successfully load balanced.
+
+### Request 1
+
+![Load Balancing 1](screenshots/05-load-balancing-1.png)
+
+### Request 2
+
+![Load Balancing 2](screenshots/05-load-balancing-2.png)
+
+### Request 3
+
+![Load Balancing 3](screenshots/05-load-balancing-3.png)
+
+---
+
+## Redis Persistence
+
+Redis stores the visit counter using a Docker volume, allowing the data to persist even after stopping and restarting the application.
+
+![Redis Persistence](screenshots/06-redis-persistence.png)
