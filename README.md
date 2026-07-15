@@ -438,3 +438,21 @@ Implemented:
 - Load balancing
 
 This project demonstrates many of the core Docker and Docker Compose concepts used by DevOps Engineers in real-world environments.
+
+---
+
+## Homepage
+
+![Homepage](screenshots/01-homepage.png)
+
+---
+
+## Visit Counter
+
+![Visit Counter](screenshots/02-visit-counter.png)
+
+---
+
+## Running Containers
+
+![Docker Compose](screenshots/03-docker-compose-ps.png)
